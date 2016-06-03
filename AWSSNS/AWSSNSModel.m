@@ -14,7 +14,14 @@
 //
 
 #import "AWSSNSModel.h"
-#import <AWSCore/AWSCategory.h>
+
+#ifdef DO_NOT_MAKE_FRAMEWORK
+  #import <AWSCore/AWSCategory.h>
+#else
+  #import "AWSCategory.h"
+#endif
+
+
 
 NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 

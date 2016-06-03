@@ -14,7 +14,11 @@
 //
 
 #import "AWSNetworking.h"
+
+#ifdef UI_USER_INTERFACE_IDIOM
 #import <UIKit/UIKit.h>
+#endif
+
 #import "AWSBolts.h"
 #import "AWSCategory.h"
 #import "AWSModel.h"

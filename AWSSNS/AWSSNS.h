@@ -21,5 +21,10 @@ FOUNDATION_EXPORT double AWSSNSVersionNumber;
 //! Project version string for AWSSNS.
 FOUNDATION_EXPORT const unsigned char AWSSNSVersionString[];
 
-#import <AWSCore/AWSCore.h>
+#ifdef DO_NOT_MAKE_FRAMEWORK
+  #import <AWSCore/AWSCore.h>
+#else
+  #import "AWSCore.h"
+#endif
+
 #import "AWSSNSService.h"

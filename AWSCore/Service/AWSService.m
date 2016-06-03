@@ -15,7 +15,10 @@
 
 #import "AWSService.h"
 
+#ifdef UI_USER_INTERFACE_IDIOM
 #import <UIKit/UIKit.h>
+#endif
+
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSURLResponseSerialization.h"
 #import "AWSLogging.h"
@@ -131,6 +134,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
     static NSString *_userAgent = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+#ifdef UI_USER_INTERFACE_IDIOM
         NSString *systemName = [[[UIDevice currentDevice] systemName] stringByReplacingOccurrencesOfString:@" " withString:@"-"];
         if (!systemName) {
             systemName = AWSServiceConfigurationUnknown;
@@ -144,6 +148,15 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
             localeIdentifier = AWSServiceConfigurationUnknown;
         }
         _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", AWSiOSSDKVersion, systemName, systemVersion, localeIdentifier];
+#else
+      NSString *systemName = @"osx";
+      NSString *systemVersion = @"10.11";
+      NSString *localeIdentifier = [[NSLocale currentLocale] localeIdentifier];
+      if (!localeIdentifier) {
+        localeIdentifier = AWSServiceConfigurationUnknown;
+      }
+      _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@", AWSiOSSDKVersion, systemName, systemVersion, localeIdentifier];
+#endif
     });
 
     NSMutableString *userAgent = [NSMutableString stringWithString:_userAgent];

@@ -14,7 +14,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
+
+#ifdef DO_NOT_MAKE_FRAMEWORK
+  #import <AWSCore/AWSCore.h>
+#else
+  #import "AWSCore.h"
+#endif
+
+
 #import "AWSSNSModel.h"
 #import "AWSSNSResources.h"
 

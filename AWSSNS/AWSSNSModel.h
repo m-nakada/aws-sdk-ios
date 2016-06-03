@@ -14,8 +14,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSCore/AWSNetworking.h>
-#import <AWSCore/AWSModel.h>
+
+#ifdef DO_NOT_MAKE_FRAMEWORK
+  #import <AWSCore/AWSNetworking.h>
+  #import <AWSCore/AWSModel.h>
+#else
+  #import "AWSNetworking.h"
+  #import "AWSModel.h"
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 

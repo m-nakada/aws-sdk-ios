@@ -14,7 +14,13 @@
 //
 
 #import "AWSSNSResources.h"
-#import <AWSCore/AWSLogging.h>
+
+#ifdef DO_NOT_MAKE_FRAMEWORK
+  #import <AWSCore/AWSLogging.h>
+#else
+  #import "AWSLogging.h"
+#endif
+
 
 @interface AWSSNSResources ()
 

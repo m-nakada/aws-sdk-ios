@@ -13,7 +13,11 @@
 // permissions and limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#ifdef UI_USER_INTERFACE_IDIOM
+  #import <UIKit/UIKit.h>
+#else
+  #import <Foundation/Foundation.h>
+#endif
 
 //! Project version number for AWSCore.
 FOUNDATION_EXPORT double AWSCoreVersionNumber;
