@@ -765,11 +765,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "Nekojarashi Inc.";
+				ORGANIZATIONNAME = "Amazon Web Services";
 				TargetAttributes = {
 					BB0F54411D0046F700740BE3 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 39ZXGQ3G5Z;
 					};
 				};
 			};
